@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Who's Watching?</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#141414;
+            font-family:Arial, sans-serif;
+            color:white;
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+        }
+
+        h1{
+            font-size:60px;
+            margin-bottom:50px;
+            font-weight:500;
+        }
+
+        .profiles{
+            display:flex;
+            gap:40px;
+        }
+
+        .profile{
+            text-align:center;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .profile:hover{
+            transform:scale(1.08);
+        }
+
+        .profile img{
+            width:160px;
+            height:160px;
+            border-radius:8px;
+            border:4px solid transparent;
+        }
+
+        .profile:hover img{
+            border-color:white;
+        }
+
+        .profile p{
+            margin-top:15px;
+            color:#aaa;
+            font-size:20px;
+        }
+
+        .profile:hover p{
+            color:white;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Who's Watching?</h1>
+
+    <div class="profiles">
+
+        <a href="/dashboard">
+
+            <div class="profile">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png">
+
+                <p>Likith</p>
+
+            </div>
+
+        </a>
+
+        <a href="/dashboard">
+
+            <div class="profile">
+
+                <img src="https://occ-0-8407-3646.1.nflxso.net/dnm/api/v6/G6Wf8YA9M8z6C3a8w9z7Lx5X6Jk/AAAABXkidsprofile.png">
+
+                <p>Kids</p>
+
+            </div>
+
+        </a>
+
+        <a href="/dashboard">
+
+            <div class="profile">
+
+                <img src="https://i.pravatar.cc/160?img=32">
+
+                <p>Adult</p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</body>
+
+</html>

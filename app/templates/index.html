@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #141414; color: white; font-family: Arial, sans-serif; }
+        .navbar { background-color: #000; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar h1 { color: #e50914; font-size: 28px; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/static/hero.jpg'); background-size: cover; height: 500px; display: flex; align-items: center; padding: 40px; }
+        .hero h2 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 18px; margin-bottom: 30px; }
+        .btn { background-color: #e50914; color: white; padding: 12px 30px; border: none; cursor: pointer; font-size: 16px; text-decoration: none; border-radius: 4px; }
+        .videos { padding: 40px; }
+        .videos h3 { font-size: 24px; margin-bottom: 20px; }
+        .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .video-card { background-color: #1f1f1f; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s; }
+        .video-card:hover { transform: scale(1.05); }
+        .video-card img { width: 100%; height: 150px; object-fit: cover; }
+        .video-card h4 { padding: 10px; font-size: 14px; }
+        .video-card p { padding: 0 10px 10px; font-size: 12px; color: #aaa; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>NETFLIX</h1>
+        <div>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    </nav>
+    <div class="hero">
+        <div>
+            <h2>Unlimited movies & TV shows</h2>
+            <p>Watch anywhere. Cancel anytime.</p>
+            <a href="/register" class="btn">Get Started</a>
+        </div>
+    </div>
+    <div class="videos">
+        <h3>All Videos</h3>
+        <div class="video-grid">
+            {% for video in videos %}
+            <div class="video-card">
+                <img src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
+                <h4>{{ video.title }}</h4>
+                <p>{{ video.genre }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

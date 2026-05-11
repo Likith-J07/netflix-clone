@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Video - Netflix Clone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #141414; color: white; font-family: Arial, sans-serif; }
+        .navbar { background-color: #000; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar h1 { color: #e50914; font-size: 28px; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; }
+        .container { max-width: 600px; margin: 60px auto; padding: 40px; background-color: #1f1f1f; border-radius: 8px; }
+        .container h2 { font-size: 24px; margin-bottom: 30px; color: #e50914; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 14px; color: #aaa; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; background-color: #333; border: none; border-radius: 4px; color: white; font-size: 14px; }
+        .form-group textarea { height: 100px; resize: none; }
+        .btn { width: 100%; background-color: #e50914; color: white; padding: 15px; border: none; cursor: pointer; font-size: 16px; border-radius: 4px; margin-top: 10px; }
+        .flash { background-color: #e50914; padding: 10px; border-radius: 4px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>NETFLIX</h1>
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Upload Video</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" name="title" placeholder="Enter video title" required>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" placeholder="Enter video description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Genre</label>
+                <select name="genre">
+                    <option value="Action">Action</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Romance">Romance</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Video File (MP4)</label>
+                <input type="file" name="video" accept="video/mp4" required>
+            </div>
+            <div class="form-group">
+                <label>Thumbnail Image (JPG)</label>
+                <input type="file" name="thumbnail" accept="image/jpeg" required>
+            </div>
+            <button type="submit" class="btn">Upload Video</button>
+        </form>
+    </div>
+</body>
+</html>

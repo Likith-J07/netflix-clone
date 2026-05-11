@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ video.title }} - Netflix Clone</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #000;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            color: #e50914;
+            font-size: 28px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .video-container {
+            padding: 40px;
+        }
+
+        .video-player {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .video-info {
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        .video-info h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .video-info p {
+            color: #aaa;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .genre {
+            background-color: #e50914;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            background-color: #333;
+            padding: 8px 20px;
+            border-radius: 4px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h1>NETFLIX</h1>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </nav>
+
+    <div class="video-container">
+
+        <a href="/dashboard" class="back-btn">← Back</a>
+
+        <div class="video-player">
+
+            <video controls autoplay>
+
+                <source src="{{ video.video_url }}" type="video/mp4">
+
+                Your browser does not support the video tag.
+
+            </video>
+
+        </div>
+
+        <div class="video-info">
+
+            <h2>{{ video.title }}</h2>
+
+            <span class="genre">{{ video.genre }}</span>
+
+            <p style="margin-top: 15px;">
+                {{ video.description }}
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

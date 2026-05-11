@@ -1,0 +1,11 @@
+flask
+flask-sqlalchemy
+flask-login
+pymysql
+boto3
+tensorflow
+pandas
+numpy
+scikit-learn
+python-dotenv
+werkzeug

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Login</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#000;
+            color:white;
+            height:100vh;
+            overflow:hidden;
+        }
+
+        .background{
+            position:absolute;
+            width:100%;
+            height:100%;
+            background:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1974&auto=format&fit=crop') center/cover;
+            filter:brightness(40%);
+            z-index:-1;
+        }
+
+        .navbar{
+            padding:25px 50px;
+        }
+
+        .navbar h1{
+            color:#e50914;
+            font-size:42px;
+            font-weight:900;
+        }
+
+        .login-container{
+            width:430px;
+            margin:40px auto;
+            background:rgba(0,0,0,0.75);
+            padding:60px;
+            border-radius:6px;
+        }
+
+        .login-container h2{
+            font-size:32px;
+            margin-bottom:30px;
+        }
+
+        .form-group{
+            margin-bottom:18px;
+        }
+
+        .form-group input{
+            width:100%;
+            padding:16px;
+            background:#333;
+            border:none;
+            border-radius:4px;
+            color:white;
+            font-size:16px;
+        }
+
+        .form-group input:focus{
+            outline:none;
+            background:#444;
+        }
+
+        .btn{
+            width:100%;
+            padding:15px;
+            background:#e50914;
+            border:none;
+            border-radius:4px;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        .btn:hover{
+            background:#f6121d;
+        }
+
+        .bottom-text{
+            margin-top:25px;
+            color:#aaa;
+        }
+
+        .bottom-text a{
+            color:white;
+            text-decoration:none;
+        }
+
+        .flash{
+            background:#e50914;
+            padding:12px;
+            border-radius:4px;
+            margin-bottom:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="navbar">
+        <h1>NETFLIX</h1>
+    </div>
+
+    <div class="login-container">
+
+        <h2>Sign In</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="btn">
+                Sign In
+            </button>
+
+        </form>
+
+        <div class="bottom-text">
+            New to Netflix?
+            <a href="/register">Sign up now</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
